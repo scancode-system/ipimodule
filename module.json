@@ -1,0 +1,13 @@
+{
+    "name": "Ipi",
+    "alias": "ipi",
+    "description": "",
+    "keywords": [],
+    "order": 0,
+    "providers": [
+        "Modules\\Ipi\\Providers\\IpiServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}
