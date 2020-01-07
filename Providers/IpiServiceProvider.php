@@ -4,8 +4,6 @@ namespace Modules\Ipi\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Database\Eloquent\Factory;
-use Modules\Product\Events\ProductRequestRulesEvent;
-use Modules\Ipi\Listeners\ProductRequestRulesListener;
 use Illuminate\Support\Facades\Event;
 
 
@@ -20,9 +18,6 @@ class IpiServiceProvider extends ServiceProvider
     {
         $this->registerViews();
         $this->loadMigrationsFrom(__DIR__ . '/../Database/Migrations');
-
-        Event::listen(ProductRequestRulesEvent::class, ProductRequestRulesListener::class);
-
     }
 
     /**
@@ -32,6 +27,7 @@ class IpiServiceProvider extends ServiceProvider
      */
     public function register()
     {
+        $this->app->register(EventServiceProvider::class);
         $this->app->register(ObserverServiceProvider::class);
     }
 
